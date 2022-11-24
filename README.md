@@ -1,8 +1,8 @@
 # PyQtThemeSettings
 
-[![License](https://img.shields.io/github/license/MrSuspicious0/PyQtThemeSettings)](https://github.com/MrSuspicious0/PyQtThemeSettings/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/MrSuspicious0/PyQtThemeSettings?label=License)](https://github.com/MrSuspicious0/PyQtThemeSettings/blob/master/LICENSE)
 [![Version](https://img.shields.io/pypi/v/PyQtThemeSettings?label=Version)](https://pypi.org/project/PyQtThemeSettings/)
-[![Downloads](https://img.shields.io/pypi/dw/PyQtThemeSettings?color=light)](https://pypi.org/project/PyQtThemeSettings/)
+[![Downloads](https://img.shields.io/pypi/dw/PyQtThemeSettings?color=light&label=Downloads)](https://pypi.org/project/PyQtThemeSettings/)
 
 A package for adding a theme management window to any PySide6 applications using PyQtDarkTheme (Support for PyQt may come at some point, but PySide6 is the official recommendation of Qt for Python, so it's not a priority for me.)
 
@@ -29,6 +29,8 @@ if __name__ == "__main__":
 ### With PyQtThemeSettings
 
 ```python
+from PyQtThemeSettings import AppSettings
+
 if __name__ == "__main__":
     app = QApplication([])
     app.setOrganizationName("MrSuspicious")
