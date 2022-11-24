@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PyQtThemeSettings"
+version = "1.0.0.post1"
+authors = [{name="MrSuspicious0"}]
+readme = "README.md"
+description = "A package for adding a theme management window to any PySide6 applications using PyQtDarkTheme"
+keywords = ["pyqt", "pyside", "theme"]
+dependencies = ["pyqtdarktheme", "pyside6"]
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/MrSuspicious0/PyQtThemeSettings"
+"Bug Tracker" = "https://github.com/MrSuspicious0/PyQtThemeSettings/issues"
