@@ -4,7 +4,9 @@
 [![Version](https://img.shields.io/pypi/v/PyQtThemeSettings?label=Version)](https://pypi.org/project/PyQtThemeSettings/)
 [![Downloads](https://img.shields.io/pypi/dw/PyQtThemeSettings?color=light&label=Downloads)](https://pypi.org/project/PyQtThemeSettings/)
 
-A package for adding a theme management window to any PySide6 applications using PyQtDarkTheme (Support for PyQt may come at some point, but PySide6 is the official recommendation of Qt for Python, so it's not a priority for me.)
+A package for adding a theme management window to any PySide6 applications using [PyQtDarkTheme](https://github.com/5yutan5/PyQtDarkTheme).
+
+Support for PyQt may come at some point, but PySide6 is the official recommendation of Qt for Python, so it's not a priority for me.
 
 ## Installation
 
