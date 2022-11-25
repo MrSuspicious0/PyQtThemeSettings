@@ -112,7 +112,12 @@ class SettingsWindow(QDialog, Ui_SettingsWindow):
         self.lblColourPreview.setPixmap(preview)
 
     def changeAccent(self):
-        colour = QColorDialog.getColor(
-            self.master.currentAccent, self, "Choose Accent Colour").name()
-        self.updatePreview(self.master.currentAccent, colour)
-        self.newAccent = colour
+
+        dialog = QColorDialog(self.master.currentAccent, self)
+        dialog.setWindowTitle("Choose Accent Colour")
+
+        if dialog.exec() == dialog.DialogCode.Accepted:
+            colour = dialog.selectedColor().name()
+
+            self.updatePreview(self.master.currentAccent, colour)
+            self.newAccent = colour
