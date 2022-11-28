@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "PyQtThemeSettings"
-version = "1.0.0.post1"
+dynamic = ["version"]
 authors = [{name="MrSuspicious0"}]
 readme = "README.md"
 description = "A package for adding a theme management window to any PySide6 applications using PyQtDarkTheme"
@@ -21,3 +21,6 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://github.com/MrSuspicious0/PyQtThemeSettings"
 "Bug Tracker" = "https://github.com/MrSuspicious0/PyQtThemeSettings/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "PyQtThemeSettings.__version__"}

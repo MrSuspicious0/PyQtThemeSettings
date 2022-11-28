@@ -31,7 +31,6 @@ class AppSettings:
             self.currentAccent = self.DEFAULTS.get(self.currentTheme)
 
     def updateTheme(self):
-
         self.app.setStyleSheet(qdarktheme.load_stylesheet(
             self.currentTheme, custom_colors={"primary": self.currentAccent}))
         self.app.setPalette(qdarktheme.load_palette(self.currentTheme))
@@ -112,7 +111,6 @@ class SettingsWindow(QDialog, Ui_SettingsWindow):
         self.lblColourPreview.setPixmap(preview)
 
     def changeAccent(self):
-
         dialog = QColorDialog(self.master.currentAccent, self)
         dialog.setWindowTitle("Choose Accent Colour")
 
