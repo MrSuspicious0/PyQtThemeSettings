@@ -27,7 +27,7 @@ class AppSettings:
         self.currentAccent: str = self.settings.value(
             "accent", self.DEFAULTS.get(self.currentTheme))
 
-        if not self._currentAccent:
+        if not self.currentAccent:
             self.currentAccent = self.DEFAULTS.get(self.currentTheme)
 
     def updateTheme(self):
@@ -37,8 +37,8 @@ class AppSettings:
 
     def openSettings(self):
         window = SettingsWindow(self, self.icon)
-        state = window.exec()
-        if state == QDialog.DialogCode.Accepted:
+
+        if window.exec() == QDialog.DialogCode.Accepted:
             self.currentTheme = window.comboxTheme.currentText().lower()
             if window.newAccent is not None:
                 self.currentAccent = window.newAccent
