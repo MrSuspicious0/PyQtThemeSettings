@@ -1,5 +1,5 @@
 import qdarktheme
-from PySide6.QtCore import QSettings
+from PySide6.QtCore import QSettings, Slot
 from PySide6.QtGui import QIcon, QPainter, QPixmap
 from PySide6.QtWidgets import QApplication, QColorDialog, QDialog
 
@@ -35,6 +35,7 @@ class AppSettings:
             self.currentTheme, custom_colors={"primary": self.currentAccent}))
         self.app.setPalette(qdarktheme.load_palette(self.currentTheme))
 
+    @Slot()
     def openSettings(self):
         window = SettingsWindow(self, self.icon)
 
@@ -76,6 +77,9 @@ class SettingsWindow(QDialog, Ui_SettingsWindow):
 
         if icon is not None and isinstance(icon, (QIcon, QPixmap)):
             self.setWindowIcon(icon)
+        else:
+            raise TypeError(
+                f"icon cannot be of type '{icon.__class__.__name__}', must be of type QIcon or QPixmap")
 
         self.updatePreview(master.currentAccent)
         self.newAccent = None
@@ -110,6 +114,7 @@ class SettingsWindow(QDialog, Ui_SettingsWindow):
 
         self.lblColourPreview.setPixmap(preview)
 
+    @Slot()
     def changeAccent(self):
         dialog = QColorDialog(self.master.currentAccent, self)
         dialog.setWindowTitle("Choose Accent Colour")
