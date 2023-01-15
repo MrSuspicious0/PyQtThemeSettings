@@ -16,7 +16,13 @@ class AppSettings:
            app theme through `app`. `icon` specifies the icon that will be used for the settings window, can be left blank."""
         self.settings = settings
         self.app = app
-        self.icon = icon
+
+        if icon is not None:
+            if isinstance(icon, (QIcon, QPixmap)):
+                self.icon = icon
+            else:
+                raise TypeError(
+                    f"icon cannot be of type '{icon.__class__.__name__}', must be of type QIcon or QPixmap")
 
         self.loadValues()
 
@@ -82,11 +88,7 @@ class SettingsWindow(QDialog, Ui_SettingsWindow):
         self.btnApply.setDefault(True)
 
         if icon is not None:
-            if isinstance(icon, (QIcon, QPixmap)):
-                self.setWindowIcon(icon)
-            else:
-                raise TypeError(
-                    f"icon cannot be of type '{icon.__class__.__name__}', must be of type QIcon or QPixmap")
+            self.setWindowIcon(icon)
 
         self.updatePreview(master.currentAccent)
         self.newAccent = None
