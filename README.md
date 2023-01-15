@@ -48,6 +48,8 @@ PyQtThemeSettings takes in a [QSettings](https://doc.qt.io/qtforpython/PySide6/Q
 
 In order to access the settings window, connect whatever signal you wish to the `AppSettings.openSettings` slot.
 
+To reset to default settings, connect whatever signal you wish to the `AppSettings.resetToDefaults` slot.
+
 ## Contribution to the Project
 
 If you have any feature suggestions please feel free to make a [pull request](https://github.com/MrSuspicious0/PyQtThemeSettings/pulls)!
