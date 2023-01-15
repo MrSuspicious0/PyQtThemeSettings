@@ -31,8 +31,8 @@ class AppSettings:
             self.currentAccent = self.DEFAULTS.get(self.currentTheme)
 
     def updateTheme(self):
-        self.app.setStyleSheet(qdarktheme.load_stylesheet(
-            self.currentTheme, custom_colors={"primary": self.currentAccent}))
+        qdarktheme.setup_theme(self.currentTheme, custom_colors={
+                               "primary": self.currentAccent})
         self.app.setPalette(qdarktheme.load_palette(self.currentTheme))
 
     @Slot()
@@ -75,15 +75,18 @@ class SettingsWindow(QDialog, Ui_SettingsWindow):
         self.setupUi(self)
         self.btnApply.setDefault(True)
 
-        if icon is not None and isinstance(icon, (QIcon, QPixmap)):
-            self.setWindowIcon(icon)
-        else:
-            raise TypeError(
-                f"icon cannot be of type '{icon.__class__.__name__}', must be of type QIcon or QPixmap")
+        if icon is not None:
+            if isinstance(icon, (QIcon, QPixmap)):
+                self.setWindowIcon(icon)
+            else:
+                raise TypeError(
+                    f"icon cannot be of type '{icon.__class__.__name__}', must be of type QIcon or QPixmap")
 
         self.updatePreview(master.currentAccent)
         self.newAccent = None
-        self.comboxTheme.addItems(["Dark", "Light"])
+        # self.comboxTheme.addItems(["Dark", "Light"])
+        self.comboxTheme.addItems(theme.title()
+                                  for theme in qdarktheme.get_themes())
         self.comboxTheme.setCurrentText(self.master.currentTheme.title())
 
         self.btnChangeAccent.clicked.connect(self.changeAccent)
