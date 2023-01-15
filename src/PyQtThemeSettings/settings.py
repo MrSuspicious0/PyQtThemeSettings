@@ -36,6 +36,12 @@ class AppSettings:
         self.app.setPalette(qdarktheme.load_palette(self.currentTheme))
 
     @Slot()
+    def resetToDefaults(self):
+        self.currentTheme = "dark"
+        self.currentAccent = self.DEFAULTS.get("dark")
+        self.updateTheme()
+
+    @Slot()
     def openSettings(self):
         window = SettingsWindow(self, self.icon)
 
